@@ -1,7 +1,7 @@
 package itcollege;
 import java.util.*;
 
-public class PrimeNumberCalculator2 {
+public class PrimeNumberCalculator3 {
 	public static int count;
 	public static List<Integer> calcTo(int maxNumber) {
 		if (maxNumber < 2) {
@@ -12,7 +12,8 @@ public class PrimeNumberCalculator2 {
 
 		primeNumbers.add(2);
 		for (int testNumber = 3; testNumber <= maxNumber; testNumber += 2) {
-			if(isPrimeNumber(testNumber)) {
+			count++;
+			if (isPrimeNumber (testNumber)) {
 				primeNumbers.add(testNumber);
 			}
 		}
@@ -28,11 +29,11 @@ public class PrimeNumberCalculator2 {
 			return false;
 		}
 
-		for (int i = 3; i < testNumber; i += 2) {
+		for (int i = 3, searchingLimit = (int) Math.sqrt(testNumber); i < searchingLimit; i += 2) {
 			count++;
 			if (testNumber % i == 0) {
 				return false;
-			} 
+			}
 		}
 		return true;
 	}

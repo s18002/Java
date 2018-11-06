@@ -1,30 +1,18 @@
-public class Main{
-		public static List<Integer> calcTo(int maxNumber) {
-					if (maxNumber < 2) {
-									return Collections.emptyList();
-											}
+import itcollege.*;
+import java.util.*;
 
-							boolean[] isPrimeNumber = new boolean[maxNumber + 1];
-									for (int testNumber = 3; testNumber <= maxNumber; testNumber = testNumber + 2) {
-													isPrimeNumber[testNumber] = true;
-															}
+public class Main {
+	public static void main(String[] args) {
 
-											List<Integer> primeNumbers = new ArrayList<Integer>();
-													primeNumbers.add(2);
-															for (int testNumber = 3, searchingLimit = (int) Math.sqrt(maxNumber);
-																					testNumber <= maxNumber; testNumber = testNumber + 2) {
-																			if (!isPrimeNumber[testNumber]) {
-																								continue;
-																											}
-																						primeNumbers.add(testNumber);
-																									if (testNumber > searchingLimit) {
-																														continue;
-																																	}
-																												for (int i = testNumber * 2; i <= maxNumber; i = i + testNumber) {
-																																	isPrimeNumber[i] = false;
-																																				}
-																														}
-																	return primeNumbers;
-																		}
+		printNumbers(PrimeNumberCalculator.calcTo(100));
+		printNumbers(PrimeNumberCalculator2.calcTo(100));
+		printNumbers(PrimeNumberCalculator3.calcTo(100));
+		printNumbers(PrimeNumberCalculator4.calcTo(100));
+	}
+
+	private static void printNumbers(List<Integer> numbers) {
+		for (int number: numbers) {
+			System.out.println(number);
+		}
+	}
 }
-
